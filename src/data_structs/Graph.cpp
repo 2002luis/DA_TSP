@@ -151,10 +151,13 @@ double Graph::prim(int src){
     }
 
     // Reset auxiliary info
-    for(auto v : vertexSet) {
+    for(auto &v : vertexSet) {
         v->setDist(INF);
         v->setPath(nullptr);
         v->setVisited(false);
+        for(auto &e : v->getAdj()){
+            e->setSelected(false);
+        }
     }
 
     // start with an arbitrary vertex
@@ -175,13 +178,16 @@ double Graph::prim(int src){
                 auto oldDist = w->getDist();
                 if(e->getWeight() < oldDist) {
                     w->setDist(e->getWeight());
-                    w->setPath(e);
                     if (oldDist == INF) {
                         q.insert(w);
                     }
                     else {
                         q.decreaseKey(w);
+                        w->getPath()->setSelected(false);
                     }
+                    w->setPath(e);
+                    e->setSelected(true);
+
                 }
             }
         }
@@ -190,22 +196,26 @@ double Graph::prim(int src){
     return dist;
 }
 
-double Graph::pathDist(std::vector<int> v){
-    double out = 0;
-    out += djikstra(v.back(),v[0]);
-    for(unsigned long int i = 1; i < v.size(); i++){
-        out += djikstra(v[i-1],v[i]);
+std::vector<int> Graph::getDfsPath(int src){
+    std::vector<int> out = {src};
+    for(auto &e : findVertex(src)->getAdj()){
+        if(e->isSelected()){
+            e->setSelected(false);
+            auto tmp = getDfsPath(e->getDest()->getId());
+            out.insert(out.end(),tmp.begin(),tmp.end());
+        }
     }
     return out;
 }
 
-double Graph::primApprox() {
-    double best = INF;
-    for(unsigned long int i = 0; i < vertexSet.size(); i++){
-        double cur = prim(vertexSet[i]->getId());
-        best = std::min(cur,best);
+double Graph::pathDist(std::vector<int> v){
+    double out = 0;
+    out += djikstra(v.back(),v[0]);
+    for(unsigned long int i = 1; i < v.size(); i++){
+        int tmp = out;
+        out += djikstra(v[i-1],v[i]);
     }
-    return best;
+    return out;
 }
 
 bool Graph::addVertex(const int &id, double lat, double lon){

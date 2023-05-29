@@ -9,6 +9,7 @@
 #include <string>
 #include <chrono>
 #include <math.h>
+#include "overloads.h"
 
 
 Menu::Menu(){
@@ -34,6 +35,7 @@ bool Menu::MenuLoop(){
             if(input == "Y" || input == "y" || input == "4"){
                 auto path = adj.tspBruteforce();
                 std::cout << g.pathDist(path) << std::endl;
+                std::cout << "The path is " << path << std::endl;
                 auto endTime = std::chrono::high_resolution_clock::now();
                 auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
                 std::cout << "It took " << duration.count() << " microseconds (" << duration.count()/1000 << " miliseconds)." << std::endl;
@@ -41,8 +43,9 @@ bool Menu::MenuLoop(){
             }
         }
         else if(input=="5"){
-            std::cout << "The approximation is: " << g.primApprox() << std::endl;
+            std::cout << "The approximation is: " << g.prim(0) << std::endl;
             auto endTime = std::chrono::high_resolution_clock::now();
+            std::cout << "The path is " << g.getDfsPath(0) << std::endl;
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
             std::cout << "It took " << duration.count() << " microseconds (" << duration.count()/1000 << " miliseconds)." << std::endl;
         }
@@ -77,23 +80,23 @@ bool Menu::MenuLoop(){
             std::cout << "File does not exist!" << std::endl;
             return true;
         }
-        adj = AdjacencyMatrix(g);
+        adj = AdjacencyMatrix(g,true);
         loadedGraph = true;
     }
     else if(input=="2"){
         std::cout << "What's the name of the directory with the files? Ex: graph1" << std::endl;
         std::getline(std::cin,input);
-        g = readFile::readHaversine("../realData"+input+"/nodes.csv",true);
+        g = readFile::readHaversine("../realData/"+input,true,true);
         if(g.getVertexSet().size() == 0){
             loadedGraph = false;
             std::cout << "File does not exist!" << std::endl;
             return true;
         }
-        adj = AdjacencyMatrix(g);
+        adj = AdjacencyMatrix(g,false);
         loadedGraph = true;
     }
     else if(input=="3"){
-        std::cout << "Qual o nome do ficheiro? Ex: edges_25.csv" << std::endl;
+        std::cout << "What's the file's name? Ex: edges_25.csv" << std::endl;
         std::getline(std::cin,input);
         g = readFile::readNormal("../extraData/"+input,false);
         if(g.getVertexSet().size() == 0){
@@ -101,7 +104,7 @@ bool Menu::MenuLoop(){
             std::cout << "File does not exist!" << std::endl;
             return true;
         }
-        adj = AdjacencyMatrix(g);
+        adj = AdjacencyMatrix(g,true);
         loadedGraph = true;
     }
     return true;

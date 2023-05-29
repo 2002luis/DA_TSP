@@ -36,19 +36,30 @@ Graph readFile::readNormal(std::string file, bool trash){
     return out;
 }
 
-Graph readFile::readHaversine(std::string file, bool trash) {
+Graph readFile::readHaversine(std::string file, bool trashNode, bool trashEdge) {
+    std::string nodes = file+"/nodes.csv", edges = file+"/edges.csv";
     Graph out;
-    std::fstream ifs(file);
+    std::fstream ifs(nodes), ife(edges);
     if(!ifs.is_open()) return out;
+    if(!ife.is_open()) return out;
     std::string line;
-    if(trash) std::getline(ifs,line);
+    if(trashNode) std::getline(ifs,line);
+    if(trashEdge) std::getline(ife,line);
     while(std::getline(ifs,line)){
         line = removeCommas(line);
         std::istringstream iss(line);
         int node;
         double lat, lon;
         iss >> node >> lat >> lon;
-        if(out.findVertex(node) == nullptr) out.addVertex(node);
+        if(out.findVertex(node) == nullptr) out.addVertex(node,lat,lon);
+        //std::cout << node << std::endl;
+    }
+    while(std::getline(ife,line)){
+        line = removeCommas(line);
+        std::istringstream iss(line);
+        int src, dest;
+        double dist;
+        out.addBidirectionalEdge(src,dest,dist);
     }
     out.generateHaversineEdges();
     return out;

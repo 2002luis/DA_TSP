@@ -14,7 +14,7 @@ class readFile {
 public:
     readFile();
     static Graph readNormal(std::string file, bool trash);
-    static Graph readHaversine(std::string file, bool trash);
+    static Graph readHaversine(std::string file, bool trashNode, bool trashEdge);
     static std::string removeCommas(std::string in);
 };
 

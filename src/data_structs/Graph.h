@@ -40,8 +40,8 @@ public:
     std::vector<Vertex*> shortestPath(int sourc, int dest);
     void generateHaversineEdges();
     double prim(int src);
+    std::vector<int> getDfsPath(int src);
     double pathDist(std::vector<int> v);
-    double primApprox();
 
 protected:
     std::vector<Vertex *> vertexSet;    // vertex set

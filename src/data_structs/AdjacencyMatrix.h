@@ -10,7 +10,7 @@
 class AdjacencyMatrix {
 public:
     AdjacencyMatrix();
-    AdjacencyMatrix(Graph g);
+    AdjacencyMatrix(Graph g, bool needsEdges);
     std::vector<double> operator[](int n);
     std::vector<int> tspBruteforce();
     double recursiveDP(int i, long long int mask);

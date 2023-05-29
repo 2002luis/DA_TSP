@@ -10,7 +10,7 @@ AdjacencyMatrix::AdjacencyMatrix() {
 
 }
 
-AdjacencyMatrix::AdjacencyMatrix(Graph g) {
+AdjacencyMatrix::AdjacencyMatrix(Graph g, bool needsEdges) {
     this->g = g;
     std::vector<double> tmp(g.getVertexSet().size(),0);
     matrix.clear();
@@ -19,7 +19,7 @@ AdjacencyMatrix::AdjacencyMatrix(Graph g) {
     {
         matrix.push_back(tmp);
     }
-    for(unsigned long int x = 0; x < g.getVertexSet().size(); x++){
+    if(needsEdges) for(unsigned long int x = 0; x < g.getVertexSet().size(); x++){
         matrix[x][x] = 0;
         for(unsigned long int y = x+1; y < g.getVertexSet().size(); y++){
             double cost = g.djikstra(g.getVertexSet()[x]->getId(),g.getVertexSet()[y]->getId());
