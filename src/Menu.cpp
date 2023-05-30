@@ -25,17 +25,13 @@ bool Menu::MenuLoop(){
                  "║ Hi! Select one topic...                                             ║\n"
                  "║ 1. To read toy graphs                                               ║\n"
                  "║ 2. To read real data using Haversine to calculate edges             ║\n"
-                 "║ 3. To read extra graphs                                             ║\n"
-                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+                 "║ 3. To read extra graphs                                             ║" << std::endl;
 
-    if(loadedGraph) std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
-                                 "║ 4. To calculate TSP using backtracking                               ║\n"
+    if(loadedGraph) std::cout << "║ 4. To calculate TSP using backtracking                               ║\n"
                                  "║ 5. To calculate an approximate result with a margin of error of 100% ║\n"
-                                 "║ 6. To calculate TSP using dynamic programming                        ║\n"
-                                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+                                 "║ 6. To calculate TSP using dynamic programming                        ║" << std::endl;
 
-    std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
-                 "║ 0. Exit the program                                                  ║\n"
+    std::cout << "║ 0. Exit the program                                                  ║\n"
                  "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
 
     std::getline(std::cin,input);
