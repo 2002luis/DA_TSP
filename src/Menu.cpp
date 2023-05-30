@@ -18,11 +18,31 @@ Menu::Menu(){
 
 bool Menu::MenuLoop(){
     std::string input;
-    std::cout << "1 To read toy graphs\n2 To read real data using Haversine to calculate edges\n3 To read extra graphs" << std::endl;
-    if(loadedGraph) std::cout << "4 To calculate TSP using backtracking\n5 To calculate an approximate result with a margin of error of 100%\n6 To calculate TSP using dynamic programming" << std::endl;
-    std::cout << "0 To leave" << std::endl;
+
+    std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
+                 "║                Ocean Shipping and Urban Deliveries                  ║\n"
+                 "╠════════════════════════════════════════════════════════════════════════════╣\n"
+                 "║ Hi! Select one topic...                                             ║\n"
+                 "║ 1. To read toy graphs                                               ║\n"
+                 "║ 2. To read real data using Haversine to calculate edges             ║\n"
+                 "║ 3. To read extra graphs                                             ║\n"
+                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+
+    if(loadedGraph) std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
+                                 "║ 4. To calculate TSP using backtracking                               ║\n"
+                                 "║ 5. To calculate an approximate result with a margin of error of 100% ║\n"
+                                 "║ 6. To calculate TSP using dynamic programming                        ║\n"
+                                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+
+    std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
+                 "║ 0. Exit the program                                                  ║\n"
+                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+
     std::getline(std::cin,input);
-    if(input=="0") return false;
+    if(input=="0") {
+        std::cout << "See you!" << std::endl;
+        return false;
+    }
     else if(loadedGraph){
         auto startTime = std::chrono::high_resolution_clock::now();
         if(input=="4"){
