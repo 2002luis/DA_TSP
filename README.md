@@ -1,6 +1,7 @@
 # Desenho de Algoritmos - DA
 
-## Project - **Routing Algorithm for Ocean Shipping and Urban Deliveries**
+## Project - **Ocean Shipping and Urban Deliveries**
+### 2022/23 FEUP
 
 Group members:
 - [x] João Martins up202108723
