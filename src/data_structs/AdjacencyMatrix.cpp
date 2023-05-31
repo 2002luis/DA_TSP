@@ -27,6 +27,18 @@ AdjacencyMatrix::AdjacencyMatrix(Graph g, bool needsEdges) {
             matrix[y][x] = cost;
         }
     }
+    else{
+        for(unsigned long int x = 0; x < g.getVertexSet().size(); x++) {
+            matrix[x][x] = 0;
+            for (unsigned long int y = x + 1; y < g.getVertexSet().size(); y++) {
+                double cost;
+                if (g.findVertex(x)->getEdgeTo(y) == nullptr) cost = g.findVertex(x)->haversine(g.findVertex(y));
+                else cost = g.findVertex(x)->getEdgeTo(y)->getWeight();
+                matrix[x][y] = cost;
+                matrix[y][x] = cost;
+            }
+        }
+    }
 }
 
 void AdjacencyMatrix::generateMemo() {
@@ -84,6 +96,13 @@ double AdjacencyMatrix::tspDynamicProgramming(){
     double out = INF;
     generateMemo();
     for (int i = 0; i < g.getVertexSet().size(); i++) out = std::min(out, recursiveDP(i, (1 << (g.getVertexSet().size())) - 1) + matrix[i][0]);
+    //out = recursiveDP(0, (1 << (g.getVertexSet().size())) - 1) + matrix[0][0];
     memo.clear();
+    return out;
+}
+
+double AdjacencyMatrix::pathDist(std::vector<int> v){
+    double out = matrix[v.front()][v.back()];
+    for(unsigned long int i = 1; i < v.size(); i++) out+=matrix[v[i]][v[i-1]];
     return out;
 }

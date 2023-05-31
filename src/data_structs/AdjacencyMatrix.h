@@ -16,6 +16,7 @@ public:
     double recursiveDP(int i, long long int mask);
     double tspDynamicProgramming();
     void generateMemo();
+    double pathDist(std::vector<int> v);
 
     Graph g;
     std::vector<std::vector<double>> matrix;

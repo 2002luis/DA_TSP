@@ -19,20 +19,22 @@ Menu::Menu(){
 bool Menu::MenuLoop(){
     std::string input;
 
-    std::cout << "╔════════════════════════════════════════════════════════════════════════════╗\n"
-                 "║                Ocean Shipping and Urban Deliveries                  ║\n"
-                 "╠════════════════════════════════════════════════════════════════════════════╣\n"
-                 "║ Hi! Select one topic...                                             ║\n"
-                 "║ 1. To read toy graphs                                               ║\n"
-                 "║ 2. To read real data using Haversine to calculate edges             ║\n"
-                 "║ 3. To read extra graphs                                             ║" << std::endl;
+    std::cout <<
+    "------------------------------------------------------------------------------\n" <<
+    "|                Ocean Shipping and Urban Deliveries                         |\n" <<
+    "|----------------------------------------------------------------------------|\n"
+    "| Hi! Select one topic...                                                    |\n"
+    "| 1. To read toy graphs                                                      |\n"
+    "| 2. To read real data using Haversine to calculate edges                    |\n"
+    "| 3. To read extra graphs                                                    |" << std::endl;
+    if(loadedGraph) std::cout <<
+    "| 4. To calculate TSP using backtracking                                     |\n" <<
+    "| 5. To calculate an approximate result with a margin of error of 100%       |\n" <<
+    "| 6. To calculate TSP using dynamic programming                              |" << std::endl;
 
-    if(loadedGraph) std::cout << "║ 4. To calculate TSP using backtracking                               ║\n"
-                                 "║ 5. To calculate an approximate result with a margin of error of 100% ║\n"
-                                 "║ 6. To calculate TSP using dynamic programming                        ║" << std::endl;
-
-    std::cout << "║ 0. Exit the program                                                  ║\n"
-                 "╚════════════════════════════════════════════════════════════════════════════╝" << std::endl;
+    std::cout <<
+    "| 0. Exit the program                                                        |\n"
+    "------------------------------------------------------------------------------" << std::endl;
 
     std::getline(std::cin,input);
     if(input=="0") {
@@ -42,8 +44,8 @@ bool Menu::MenuLoop(){
     else if(loadedGraph){
         auto startTime = std::chrono::high_resolution_clock::now();
         if(input=="4"){
-            if(g.getVertexSet().size() > 10) {
-                std::cout << "This graph has more than 10 vertices, it will take really long, are you sure? Y/N" << std::endl;
+            if(g.getVertexSet().size() > 12) {
+                std::cout << "This graph has more than 12 vertices, it will take really long, are you sure? Y/N" << std::endl;
                 std::getline(std::cin,input);
                 //if(input == "N") std::cout << "Pois bem me pareceu" << std::endl;
                //else std::cout << "Tu é que sabes chefe, boa sorte" << std::endl;
@@ -59,22 +61,24 @@ bool Menu::MenuLoop(){
             }
         }
         else if(input=="5"){
-            std::cout << "The approximation is: " << g.prim(0) << std::endl;
+            double tmp = g.prim(0);
+            auto path = g.getDfsPath(0);
+            std::cout << "The approximation is: " << std::min(adj.pathDist(path),tmp) << std::endl;
             auto endTime = std::chrono::high_resolution_clock::now();
-            std::cout << "The path is " << g.getDfsPath(0) << std::endl;
+            std::cout << "The path is " << path << std::endl;
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
             std::cout << "It took " << duration.count() << " microseconds (" << duration.count()/1000 << " miliseconds)." << std::endl;
         }
         else if(input=="6"){
             if(g.getVertexSet().size() >= 64){
                 std::cout << "This algorithm uses a bitmask with 64 bits, and this graph has more than 64 vertices, so this algorithm is not usable for this problem." << std::endl;
+                std::cout << "It should never be used for anything equal or above 25 vertices anyway, because of the amount of memory it would need." << std::endl;
             }
             else if(g.getVertexSet().size() > 20) {
-                std::cout << "This has more than 20 vertices, it will take really long and need " << (pow(2,g.getVertexSet().size())*50*64)/8000000000 << " GB of memory, are you sure? Y/N" << std::endl;
-                //std::cout << "Vai-te ocupar " << (pow(2,g.getVertexSet().size())*50*64)/8000000000 << " GB na RAM lol" << std::endl;
+                std::cout << "This has more than 20 vertices, it will take really long and since it has " << g.getVertexSet().size() << " vertices it will need about " << (pow(2,g.getVertexSet().size())*g.getVertexSet().size()*64)/8000000000 << " GB of memory, are you sure? Y/N" << std::endl;
+
                 std::getline(std::cin,input);
-                //if(input == "N" || input == "n") std::cout << "Pois bem me pareceu" << std::endl;
-                //else std::cout << "Tu é que sabes chefe, boa sorte" << std::endl;
+
             }
             if((input == "Y" || input == "y" || input == "6") && g.getVertexSet().size() < 64){
 
