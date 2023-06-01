@@ -18,6 +18,9 @@ int main(){
     //Dyanmic programming
     //21 nos demora 94 segundos
     //22 nos demora 208 segundos
+
+    //24 nos demora 1059 segundos
+
     //é exponencial
 
     Menu menu;
