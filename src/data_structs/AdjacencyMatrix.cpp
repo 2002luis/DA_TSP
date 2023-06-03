@@ -101,6 +101,7 @@ double AdjacencyMatrix::tspDynamicProgramming(){
     return out;
 }
 
+
 double AdjacencyMatrix::pathDist(std::vector<int> v){
     double out = matrix[v.front()][v.back()];
     for(unsigned long int i = 1; i < v.size(); i++) out+=matrix[v[i]][v[i-1]];

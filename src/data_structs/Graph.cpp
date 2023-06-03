@@ -89,8 +89,12 @@ Graph::~Graph() {
     deleteMatrix(pathMatrix, vertexSet.size());
 }
 
+
 class cmp{
 public:
+    /**
+     * Used to sort priority queue in dijkstra function
+     */
     bool operator()(std::pair<int,double> p1, std::pair<int,double> p2){
         return p1.second>p2.second;
     }

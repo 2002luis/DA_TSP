@@ -18,68 +18,68 @@ class Edge;
 
 class Vertex {
 public:
-    /// Constructor for vertex
+    /// @brief Constructor for vertex
     /// @param int the id of the vertex
     ///
     Vertex(int id);
 
-    /// Constructor for vertex
+    /// @brief Constructor for vertex
     /// @param int the id of the vertex
     /// @param double the latitude of the vertex
     /// @param double the longitude of the vertex
     ///
     Vertex(int id, double lat, double lon);
 
-    /// Compares vertex by distance
+    /// @brief Compares vertex by distance
     /// @param Vertex vertex
     /// @return true if smaller, false if equal or bigger
     ///
     bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
-    /// Gets vertex ID
+    /// @brief Gets vertex ID
     /// @return the id
     ///
     int getId() const;
 
     /**
-     * Get the list of adjacent vertices
+     * @brief Get the list of adjacent vertices
      * @return the list of adjacent vertices
      */
     std::vector<Edge *> getAdj() const;
 
-    /// Gets visited variable
+    /// @brief Gets visited variable
     /// @return the variable
     ///
     bool isVisited() const;
 
 
-    /// Get variable dist
+    /// @brief Get variable dist
     /// @return the variable
     ///
     double getDist() const;
 
-    /// Gets path variable
+    /// @brief Gets path variable
     /// @return the variable
     ///
     Edge *getPath() const;
 
 
-    /// Sets visited variable
+    /// @brief Sets visited variable
     /// @param bool the new value of the variable
     ///
     void setVisited(bool visited);
 
-    /// Sets dist variable
+    /// @brief Sets dist variable
     /// @param double the new value of dist
     ///
     void setDist(double dist);
 
-    /// Sets path variable
+    /// @brief Sets path variable
     /// @param Edge* the new value of path
     ///
     void setPath(Edge *path);
 
-    /// Creates a new edge starting in this vertex with destination in vertex dest and weight w
+    /// @brief Creates a new edge starting in this vertex with destination in vertex dest and weight w
     /// @param Vertex* the destination vertex
     /// @param double the weight of the edge
     /// @return a pointer to the new edge
@@ -88,14 +88,13 @@ public:
 
 
 
-    /// Returns the edge that ends in vertex dest
+    /// @brief Returns the edge that ends in vertex dest
     /// @param int The ID of the vertex to search for
     /// @return the edge if it exists, nullptr if it doesn't
     ///
     Edge* getEdgeTo(int dest);
 
-    /// Calculates the geographical distance between two vertices with latitude and longitude
-    /// Undefined behaviour if either vertex doesn't have either latitude or longitude
+    /// @brief Calculates the geographical distance between two vertices with latitude and longitude. Undefined behaviour if either vertex doesn't have either latitude or longitude
     /// @param Vertex* The other vertex to calculate the distance
     /// @return The distance between the two nodes
     ///
@@ -124,7 +123,7 @@ protected:
     /// required by MutablePriorityQueue and UFDS
     int queueIndex = 0;
 
-    /// Deletes an edge
+    /// @brief Deletes an edge
     /// @param Edge* the edge to delete
     ///
     void deleteEdge(Edge *edge);
@@ -136,18 +135,18 @@ protected:
 
 class Edge {
 public:
-    /// Edge constructor
+    /// @brief Edge constructor
     /// @param Vertex* origin vertex
     /// @param Vertex* destination vertex
     /// @param double the weight of the vertex
     ///
     Edge(Vertex *orig, Vertex *dest, double w);
 
-    /// Returns a pointer to the destination vertex of the edge
+    /// @brief Returns a pointer to the destination vertex of the edge
     /// @return the Vertex in question
     Vertex * getDest() const;
 
-    /// Returns the weight variable
+    /// @brief Returns the weight variable
     /// @return the variable in question
     ///
     double getWeight() const;
@@ -157,19 +156,19 @@ public:
     ///
     bool isSelected() const;
 
-    /// Returns a pointer to the origin vertex of the edge
+    /// @brief Returns a pointer to the origin vertex of the edge
     /// @return the Vertex in question
     Vertex * getOrig() const;
 
 
 
 
-    /// Sets the selected variable
+    /// @brief Sets the selected variable
     /// @param bool the new value of the variable
     ///
     void setSelected(bool selected);
 
-    /// Sets the reverse variable
+    /// @brief Sets the reverse variable
     /// @param Edge* the new value of the variable
     ///
     void setReverse(Edge *reverse);
