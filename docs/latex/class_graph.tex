@@ -1,0 +1,363 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a902c5b3eacb66d60752525ab23297a95}{$\sim$\+Graph}} ()
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_graph_a089f7fc73ea9976295d387846ad36c69}{find\+Vertex}} (const int \&id) const
+\begin{DoxyCompactList}\small\item\em Auxiliary function to find a vertex with a given ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_ad354c018724ef3f137a0b8554089105e}{add\+Vertex}} (const int \&id)
+\begin{DoxyCompactList}\small\item\em Adds a vertex with a given content or info (in) to a graph (this). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a4fb76de411926c6417b964051cdefbdf}{add\+Vertex}} (const int \&id, double lat, double lon)
+\begin{DoxyCompactList}\small\item\em Adds a vertex with a given content or info (in) to a graph (this). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a516f4487d70f4b15e413447afa8c2310}{add\+Edge}} (const int \&sourc, const int \&dest, double w)
+\begin{DoxyCompactList}\small\item\em Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a5d6b6b10ebe49cc0191ab45151cd49e7}{add\+Bidirectional\+Edge}} (const int \&sourc, const int \&dest, double w)
+\begin{DoxyCompactList}\small\item\em Adds an bidirectional edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}{get\+Num\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of vertices. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_a619ac583094079134074658e29463c0e}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Returns the vector of the vertices. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a796c66156d603e2b8c3f93d820f01812}{djikstra}} (int sourc, int dest)
+\begin{DoxyCompactList}\small\item\em Finds the shortest path from one node to another Complexity O(\+V$^\wedge$2) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_aa5a971db5fe96a780b51a8544742767b}{shortest\+Path}} (int sourc, int dest)
+\begin{DoxyCompactList}\small\item\em Finds the shortest path from a point to another Complexity O(\+V$^\wedge$2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_ac59d73ba2cf6a23ecc04937ea6d8702a}{generate\+Haversine\+Edges}} ()
+\begin{DoxyCompactList}\small\item\em Generates non existant edges by using latitude and longitude Complexity O(\+V$\ast$\+E) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_ad20e6860d2dd2f96c1da6c1bcc8ae7b4}{prim}} (int src)
+\begin{DoxyCompactList}\small\item\em Generates a minimum spanning tree using prim\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_a90a61d1e0ae83b0aef81642f34fe0aad}{get\+Dfs\+Path}} (int src)
+\begin{DoxyCompactList}\small\item\em Gets the vertices of the minimum spanning tree in preorder. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a5da5960bc855c59d7d1e1e6a0ae7fb6d}{path\+Dist}} (std\+::vector$<$ int $>$ v)
+\begin{DoxyCompactList}\small\item\em Calculates the distance in a path of vertices. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_adf96c2c2c55977657ccb6410531b2c20}{count\+Visited}} ()
+\begin{DoxyCompactList}\small\item\em Counts the amount of nodes that are visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a7dfcef08a9286cf144902cd7e56940ee}{find\+Vertex\+Idx}} (const int \&id) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}{vertex\+Set}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_vertex}{Vertex}} set. \end{DoxyCompactList}\item 
+double $\ast$$\ast$ \mbox{\hyperlink{class_graph_a9e61864da69191c1896a25a708d1a02d}{dist\+Matrix}} = nullptr
+\begin{DoxyCompactList}\small\item\em Dist matrix for Floyd-\/\+Warshall. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}{path\+Matrix}} = nullptr
+\begin{DoxyCompactList}\small\item\em Path matrix for Floyd-\/\+Warshall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a902c5b3eacb66d60752525ab23297a95}\label{class_graph_a902c5b3eacb66d60752525ab23297a95}} 
+\index{Graph@{Graph}!````~Graph@{$\sim$Graph}}
+\index{````~Graph@{$\sim$Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph()}{~Graph()}}
+{\footnotesize\ttfamily Graph\+::$\sim$\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_a5d6b6b10ebe49cc0191ab45151cd49e7}\label{class_graph_a5d6b6b10ebe49cc0191ab45151cd49e7}} 
+\index{Graph@{Graph}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption})}
+
+
+
+Adds an bidirectional edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the source vertex \\
+\hline
+{\em int} & id of the destination vertex \\
+\hline
+{\em double} & distance of the vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a516f4487d70f4b15e413447afa8c2310}\label{class_graph_a516f4487d70f4b15e413447afa8c2310}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption})}
+
+
+
+Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the source vertex \\
+\hline
+{\em int} & id of the destination vertex \\
+\hline
+{\em double} & distance of the vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ad354c018724ef3f137a0b8554089105e}\label{class_graph_ad354c018724ef3f137a0b8554089105e}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a vertex with a given content or info (in) to a graph (this). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the vertex to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successfully added, false if a vertex with that content already exists. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a4fb76de411926c6417b964051cdefbdf}\label{class_graph_a4fb76de411926c6417b964051cdefbdf}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id,  }\item[{double}]{lat,  }\item[{double}]{lon }\end{DoxyParamCaption})}
+
+
+
+Adds a vertex with a given content or info (in) to a graph (this). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the vertex to be added \\
+\hline
+{\em double} & latitude of the vertex \\
+\hline
+{\em double} & longitude of the vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false if a vertex with that content already exists. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_adf96c2c2c55977657ccb6410531b2c20}\label{class_graph_adf96c2c2c55977657ccb6410531b2c20}} 
+\index{Graph@{Graph}!countVisited@{countVisited}}
+\index{countVisited@{countVisited}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{countVisited()}{countVisited()}}
+{\footnotesize\ttfamily int Graph\+::count\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts the amount of nodes that are visited. 
+
+\begin{DoxyReturn}{Returns}
+Number of visited nodes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a796c66156d603e2b8c3f93d820f01812}\label{class_graph_a796c66156d603e2b8c3f93d820f01812}} 
+\index{Graph@{Graph}!djikstra@{djikstra}}
+\index{djikstra@{djikstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{djikstra()}{djikstra()}}
+{\footnotesize\ttfamily double Graph\+::djikstra (\begin{DoxyParamCaption}\item[{int}]{sourc,  }\item[{int}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds the shortest path from one node to another Complexity O(\+V$^\wedge$2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of source vertex \\
+\hline
+{\em int} & id of destination vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a089f7fc73ea9976295d387846ad36c69}\label{class_graph_a089f7fc73ea9976295d387846ad36c69}} 
+\index{Graph@{Graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Auxiliary function to find a vertex with a given ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the vertex to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the created \mbox{\hyperlink{class_vertex}{Vertex}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a7dfcef08a9286cf144902cd7e56940ee}\label{class_graph_a7dfcef08a9286cf144902cd7e56940ee}} 
+\index{Graph@{Graph}!findVertexIdx@{findVertexIdx}}
+\index{findVertexIdx@{findVertexIdx}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
+{\footnotesize\ttfamily int Graph\+::find\+Vertex\+Idx (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Finds the index of the vertex with a given content. 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ac59d73ba2cf6a23ecc04937ea6d8702a}\label{class_graph_ac59d73ba2cf6a23ecc04937ea6d8702a}} 
+\index{Graph@{Graph}!generateHaversineEdges@{generateHaversineEdges}}
+\index{generateHaversineEdges@{generateHaversineEdges}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{generateHaversineEdges()}{generateHaversineEdges()}}
+{\footnotesize\ttfamily void Graph\+::generate\+Haversine\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates non existant edges by using latitude and longitude Complexity O(\+V$\ast$\+E) 
+
+\mbox{\Hypertarget{class_graph_a90a61d1e0ae83b0aef81642f34fe0aad}\label{class_graph_a90a61d1e0ae83b0aef81642f34fe0aad}} 
+\index{Graph@{Graph}!getDfsPath@{getDfsPath}}
+\index{getDfsPath@{getDfsPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getDfsPath()}{getDfsPath()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::get\+Dfs\+Path (\begin{DoxyParamCaption}\item[{int}]{src }\end{DoxyParamCaption})}
+
+
+
+Gets the vertices of the minimum spanning tree in preorder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the vertex to start \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertices in preorder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}\label{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}} 
+\index{Graph@{Graph}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of vertices. 
+
+\begin{DoxyReturn}{Returns}
+number of vertices 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a619ac583094079134074658e29463c0e}\label{class_graph_a619ac583094079134074658e29463c0e}} 
+\index{Graph@{Graph}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the vector of the vertices. 
+
+\begin{DoxyReturn}{Returns}
+vector of vertices 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a5da5960bc855c59d7d1e1e6a0ae7fb6d}\label{class_graph_a5da5960bc855c59d7d1e1e6a0ae7fb6d}} 
+\index{Graph@{Graph}!pathDist@{pathDist}}
+\index{pathDist@{pathDist}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{pathDist()}{pathDist()}}
+{\footnotesize\ttfamily double Graph\+::path\+Dist (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates the distance in a path of vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::vector$<$int$>$} & a vector with the ids of vertices in order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ad20e6860d2dd2f96c1da6c1bcc8ae7b4}\label{class_graph_ad20e6860d2dd2f96c1da6c1bcc8ae7b4}} 
+\index{Graph@{Graph}!prim@{prim}}
+\index{prim@{prim}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{prim()}{prim()}}
+{\footnotesize\ttfamily double Graph\+::prim (\begin{DoxyParamCaption}\item[{int}]{src }\end{DoxyParamCaption})}
+
+
+
+Generates a minimum spanning tree using prim\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of the source node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cost of all edges $\ast$ 2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_aa5a971db5fe96a780b51a8544742767b}\label{class_graph_aa5a971db5fe96a780b51a8544742767b}} 
+\index{Graph@{Graph}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::shortest\+Path (\begin{DoxyParamCaption}\item[{int}]{sourc,  }\item[{int}]{dest }\end{DoxyParamCaption})}
+
+
+
+Finds the shortest path from a point to another Complexity O(\+V$^\wedge$2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & id of source vertex \\
+\hline
+{\em int} & id of destination vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector with the shortest path from one vertex to another 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_a9e61864da69191c1896a25a708d1a02d}\label{class_graph_a9e61864da69191c1896a25a708d1a02d}} 
+\index{Graph@{Graph}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily double$\ast$$\ast$ Graph\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Dist matrix for Floyd-\/\+Warshall. 
+
+\mbox{\Hypertarget{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}\label{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}} 
+\index{Graph@{Graph}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily int$\ast$$\ast$ Graph\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Path matrix for Floyd-\/\+Warshall. 
+
+\mbox{\Hypertarget{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}\label{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}} 
+\index{Graph@{Graph}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$$>$ Graph\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_vertex}{Vertex}} set. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/data\+\_\+structs/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/data\+\_\+structs/\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}

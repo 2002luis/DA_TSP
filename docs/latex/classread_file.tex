@@ -1,0 +1,86 @@
+\hypertarget{classread_file}{}\doxysection{read\+File Class Reference}
+\label{classread_file}\index{readFile@{readFile}}
+
+
+{\ttfamily \#include $<$read\+File.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classread_file_aa4a9bec0ffda2790f8562503d6851d1a}{read\+File}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{classread_file_a18efc57344ae7f71bdb0aa992f30ccda}{read\+Normal}} (std\+::string file, bool trash)
+\item 
+static \mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{classread_file_ab68af32bf4acf9f255bde016047a4695}{read\+Haversine}} (std\+::string file, bool trash\+Node, bool trash\+Edge)
+\item 
+static std\+::string \mbox{\hyperlink{classread_file_a0cf17ef991a6962cebae8978c70aed98}{remove\+Commas}} (std\+::string in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classread_file_aa4a9bec0ffda2790f8562503d6851d1a}\label{classread_file_aa4a9bec0ffda2790f8562503d6851d1a}} 
+\index{readFile@{readFile}!readFile@{readFile}}
+\index{readFile@{readFile}!readFile@{readFile}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily read\+File\+::read\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classread_file_ab68af32bf4acf9f255bde016047a4695}\label{classread_file_ab68af32bf4acf9f255bde016047a4695}} 
+\index{readFile@{readFile}!readHaversine@{readHaversine}}
+\index{readHaversine@{readHaversine}!readFile@{readFile}}
+\doxysubsubsection{\texorpdfstring{readHaversine()}{readHaversine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} read\+File\+::read\+Haversine (\begin{DoxyParamCaption}\item[{std\+::string}]{file,  }\item[{bool}]{trash\+Node,  }\item[{bool}]{trash\+Edge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads nodes from two files in a folder, one named edges.\+csv with edges, and another named nodes.\+csv with the nodes. If any edge isn\textquotesingle{}t given by edges.\+csv, it will be calculated using haversine with the coordinates of the nodes given 
+\begin{DoxyParams}{Parameters}
+{\em file} & \\
+\hline
+{\em trash\+Node} & \\
+\hline
+{\em trash\+Edge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classread_file_a18efc57344ae7f71bdb0aa992f30ccda}\label{classread_file_a18efc57344ae7f71bdb0aa992f30ccda}} 
+\index{readFile@{readFile}!readNormal@{readNormal}}
+\index{readNormal@{readNormal}!readFile@{readFile}}
+\doxysubsubsection{\texorpdfstring{readNormal()}{readNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} read\+File\+::read\+Normal (\begin{DoxyParamCaption}\item[{std\+::string}]{file,  }\item[{bool}]{trash }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads nodes from a file using the distances given in it. If any edge isn\textquotesingle{}t given, nothing will be done 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & the directory of the file to be read \\
+\hline
+{\em bool} & whether the first line of the file is trash or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_graph}{Graph}} that was read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classread_file_a0cf17ef991a6962cebae8978c70aed98}\label{classread_file_a0cf17ef991a6962cebae8978c70aed98}} 
+\index{readFile@{readFile}!removeCommas@{removeCommas}}
+\index{removeCommas@{removeCommas}!readFile@{readFile}}
+\doxysubsubsection{\texorpdfstring{removeCommas()}{removeCommas()}}
+{\footnotesize\ttfamily std\+::string read\+File\+::remove\+Commas (\begin{DoxyParamCaption}\item[{std\+::string}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes commas from a string for ease of reading 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & the string with commas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string without commas 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/\mbox{\hyperlink{read_file_8h}{read\+File.\+h}}\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/\mbox{\hyperlink{read_file_8cpp}{read\+File.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\hypertarget{class_adjacency_matrix}{}\doxysection{Adjacency\+Matrix Class Reference}
+\label{class_adjacency_matrix}\index{AdjacencyMatrix@{AdjacencyMatrix}}
+
+
+{\ttfamily \#include $<$Adjacency\+Matrix.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_adjacency_matrix_a68d40327fa433eee66424eab6b656bf3}{Adjacency\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_adjacency_matrix}{Adjacency\+Matrix}} (unused) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_adjacency_matrix_aabffe5adf1989fec466af53deedf40ae}{Adjacency\+Matrix}} (\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_adjacency_matrix_a157c7c72e358f1031dcd4afc5610fa7c}{g}}, bool needs\+Edges)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_adjacency_matrix}{Adjacency\+Matrix}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_adjacency_matrix_afb199c16f90977ef0b7f3e457926ce67}{operator\mbox{[}$\,$\mbox{]}}} (int n)
+\begin{DoxyCompactList}\small\item\em Overload for operator \mbox{[}\mbox{]} that allows ease of access to line of the matrix. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_adjacency_matrix_a1231ae55fca3cb61a4f67af6ac464ef4}{tsp\+Bruteforce}} ()
+\begin{DoxyCompactList}\small\item\em Returns the optimal path for TSP using bruteforce Complexity O(N!) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_adjacency_matrix_aef6234ce4b4280eaec835553b7a9d017}{recursive\+DP}} (int i, long long int mask)
+\begin{DoxyCompactList}\small\item\em The recursive function call for the solution using dynamic programming. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_adjacency_matrix_aa119d143f08daa7e7fa1d8343a8caebc}{tsp\+Dynamic\+Programming}} ()
+\begin{DoxyCompactList}\small\item\em The function that calculates TSP using dynamic programming Complexity O(2$^\wedge$n $\ast$ n$^\wedge$2) Spatial Complexity O(2$^\wedge$n $\ast$ n$^\wedge$2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adjacency_matrix_a9ee7165ffd8345c034b0101b3bae5a54}{generate\+Memo}} ()
+\begin{DoxyCompactList}\small\item\em Generates the memo matrix with everything set to 0. This should be done only when needed as to not use unnecessary space in the memory! \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_adjacency_matrix_a2d3a36992b60b85141e63240c0344598}{path\+Dist}} (std\+::vector$<$ int $>$ v)
+\begin{DoxyCompactList}\small\item\em Calculates the distance of a path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_adjacency_matrix_a157c7c72e358f1031dcd4afc5610fa7c}{g}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_adjacency_matrix_a55d30379c1081ac1bed663230a314fab}{matrix}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_adjacency_matrix_a5eb923bdc59d4d3acb778136e648bb63}{memo}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_adjacency_matrix_a68d40327fa433eee66424eab6b656bf3}\label{class_adjacency_matrix_a68d40327fa433eee66424eab6b656bf3}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!AdjacencyMatrix@{AdjacencyMatrix}}
+\index{AdjacencyMatrix@{AdjacencyMatrix}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{AdjacencyMatrix()}{AdjacencyMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Adjacency\+Matrix\+::\+Adjacency\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{class_adjacency_matrix}{Adjacency\+Matrix}} (unused) 
+
+\mbox{\Hypertarget{class_adjacency_matrix_aabffe5adf1989fec466af53deedf40ae}\label{class_adjacency_matrix_aabffe5adf1989fec466af53deedf40ae}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!AdjacencyMatrix@{AdjacencyMatrix}}
+\index{AdjacencyMatrix@{AdjacencyMatrix}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{AdjacencyMatrix()}{AdjacencyMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Adjacency\+Matrix\+::\+Adjacency\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}}]{g,  }\item[{bool}]{needs\+Edges }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_adjacency_matrix}{Adjacency\+Matrix}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_graph}{Graph}}} & the graph to build the adjacency matrix for \\
+\hline
+{\em bool} & whether the graph needs any edges or not, that is, if it is fully connected, false, if it isn\textquotesingle{}t fully connected, true \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_adjacency_matrix_a9ee7165ffd8345c034b0101b3bae5a54}\label{class_adjacency_matrix_a9ee7165ffd8345c034b0101b3bae5a54}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!generateMemo@{generateMemo}}
+\index{generateMemo@{generateMemo}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{generateMemo()}{generateMemo()}}
+{\footnotesize\ttfamily void Adjacency\+Matrix\+::generate\+Memo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates the memo matrix with everything set to 0. This should be done only when needed as to not use unnecessary space in the memory! 
+
+\mbox{\Hypertarget{class_adjacency_matrix_afb199c16f90977ef0b7f3e457926ce67}\label{class_adjacency_matrix_afb199c16f90977ef0b7f3e457926ce67}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Adjacency\+Matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Overload for operator \mbox{[}\mbox{]} that allows ease of access to line of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the line of the matrix to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the line of the matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_adjacency_matrix_a2d3a36992b60b85141e63240c0344598}\label{class_adjacency_matrix_a2d3a36992b60b85141e63240c0344598}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!pathDist@{pathDist}}
+\index{pathDist@{pathDist}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{pathDist()}{pathDist()}}
+{\footnotesize\ttfamily double Adjacency\+Matrix\+::path\+Dist (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates the distance of a path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::vector$<$int$>$} & The path to calculate the distance of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_adjacency_matrix_aef6234ce4b4280eaec835553b7a9d017}\label{class_adjacency_matrix_aef6234ce4b4280eaec835553b7a9d017}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!recursiveDP@{recursiveDP}}
+\index{recursiveDP@{recursiveDP}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{recursiveDP()}{recursiveDP()}}
+{\footnotesize\ttfamily double Adjacency\+Matrix\+::recursive\+DP (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{long long int}]{mask }\end{DoxyParamCaption})}
+
+
+
+The recursive function call for the solution using dynamic programming. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the index of the current node \\
+\hline
+{\em longlong} & a bitmask that contains information about which vertices have already been visited and which haven\textquotesingle{}t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cost of the shortest path found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_adjacency_matrix_a1231ae55fca3cb61a4f67af6ac464ef4}\label{class_adjacency_matrix_a1231ae55fca3cb61a4f67af6ac464ef4}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!tspBruteforce@{tspBruteforce}}
+\index{tspBruteforce@{tspBruteforce}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{tspBruteforce()}{tspBruteforce()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Adjacency\+Matrix\+::tsp\+Bruteforce (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the optimal path for TSP using bruteforce Complexity O(N!) 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_adjacency_matrix_aa119d143f08daa7e7fa1d8343a8caebc}\label{class_adjacency_matrix_aa119d143f08daa7e7fa1d8343a8caebc}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!tspDynamicProgramming@{tspDynamicProgramming}}
+\index{tspDynamicProgramming@{tspDynamicProgramming}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{tspDynamicProgramming()}{tspDynamicProgramming()}}
+{\footnotesize\ttfamily double Adjacency\+Matrix\+::tsp\+Dynamic\+Programming (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The function that calculates TSP using dynamic programming Complexity O(2$^\wedge$n $\ast$ n$^\wedge$2) Spatial Complexity O(2$^\wedge$n $\ast$ n$^\wedge$2) 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_adjacency_matrix_a157c7c72e358f1031dcd4afc5610fa7c}\label{class_adjacency_matrix_a157c7c72e358f1031dcd4afc5610fa7c}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!g@{g}}
+\index{g@{g}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} Adjacency\+Matrix\+::g}
+
+\mbox{\Hypertarget{class_adjacency_matrix_a55d30379c1081ac1bed663230a314fab}\label{class_adjacency_matrix_a55d30379c1081ac1bed663230a314fab}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!matrix@{matrix}}
+\index{matrix@{matrix}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Adjacency\+Matrix\+::matrix}
+
+\mbox{\Hypertarget{class_adjacency_matrix_a5eb923bdc59d4d3acb778136e648bb63}\label{class_adjacency_matrix_a5eb923bdc59d4d3acb778136e648bb63}} 
+\index{AdjacencyMatrix@{AdjacencyMatrix}!memo@{memo}}
+\index{memo@{memo}!AdjacencyMatrix@{AdjacencyMatrix}}
+\doxysubsubsection{\texorpdfstring{memo}{memo}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Adjacency\+Matrix\+::memo}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/data\+\_\+structs/\mbox{\hyperlink{_adjacency_matrix_8h}{Adjacency\+Matrix.\+h}}\item 
+C\+:/\+Users/luism/\+One\+Drive/\+Ambiente de Trabalho/\+Projeto/\+DAEpico2/src/data\+\_\+structs/\mbox{\hyperlink{_adjacency_matrix_8cpp}{Adjacency\+Matrix.\+cpp}}\end{DoxyCompactItemize}

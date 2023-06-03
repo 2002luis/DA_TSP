@@ -1,0 +1,64 @@
+\hypertarget{_graph_8h_source}{}\doxysection{Graph.\+h}
+\label{_graph_8h_source}\index{C:/Users/luism/OneDrive/Ambiente de Trabalho/Projeto/DAEpico2/src/data\_structs/Graph.h@{C:/Users/luism/OneDrive/Ambiente de Trabalho/Projeto/DAEpico2/src/data\_structs/Graph.h}}
+\mbox{\hyperlink{_graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DA\_TP\_CLASSES\_GRAPH}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DA\_TP\_CLASSES\_GRAPH}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_vertex_edge_8h}{VertexEdge.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mutable_priority_queue_8h}{MutablePriorityQueue.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_graph_a902c5b3eacb66d60752525ab23297a95}{\string~Graph}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_vertex}{Vertex}} *\mbox{\hyperlink{class_graph_a089f7fc73ea9976295d387846ad36c69}{findVertex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&\textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ad354c018724ef3f137a0b8554089105e}{addVertex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&\textcolor{keywordtype}{id});}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ad354c018724ef3f137a0b8554089105e}{addVertex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&\textcolor{keywordtype}{id}, \textcolor{keywordtype}{double} lat, \textcolor{keywordtype}{double} lon);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a516f4487d70f4b15e413447afa8c2310}{addEdge}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&sourc, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&dest, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_a5d6b6b10ebe49cc0191ab45151cd49e7}{addBidirectionalEdge}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&sourc, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&dest, \textcolor{keywordtype}{double} w);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}{getNumVertex}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{61     std::vector<Vertex *> \mbox{\hyperlink{class_graph_a619ac583094079134074658e29463c0e}{getVertexSet}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a796c66156d603e2b8c3f93d820f01812}{djikstra}}(\textcolor{keywordtype}{int} sourc, \textcolor{keywordtype}{int} dest);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{77     std::vector<Vertex*> \mbox{\hyperlink{class_graph_aa5a971db5fe96a780b51a8544742767b}{shortestPath}}(\textcolor{keywordtype}{int} sourc, \textcolor{keywordtype}{int} dest);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ac59d73ba2cf6a23ecc04937ea6d8702a}{generateHaversineEdges}}();}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ad20e6860d2dd2f96c1da6c1bcc8ae7b4}{prim}}(\textcolor{keywordtype}{int} src);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{94     std::vector<int> \mbox{\hyperlink{class_graph_a90a61d1e0ae83b0aef81642f34fe0aad}{getDfsPath}}(\textcolor{keywordtype}{int} src);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a5da5960bc855c59d7d1e1e6a0ae7fb6d}{pathDist}}(std::vector<int> v);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_adf96c2c2c55977657ccb6410531b2c20}{countVisited}}();}
+\DoxyCodeLine{107 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{109     std::vector<Vertex *> \mbox{\hyperlink{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}{vertexSet}};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{double} ** \mbox{\hyperlink{class_graph_a9e61864da69191c1896a25a708d1a02d}{distMatrix}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{int} **\mbox{\hyperlink{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}{pathMatrix}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a7dfcef08a9286cf144902cd7e56940ee}{findVertexIdx}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&\textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{122 \};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{int} **m, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{keywordtype}{void} \mbox{\hyperlink{_graph_8h_ad56527992afe31a371065e795da57d25}{deleteMatrix}}(\textcolor{keywordtype}{double} **m, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DA\_TP\_CLASSES\_GRAPH */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

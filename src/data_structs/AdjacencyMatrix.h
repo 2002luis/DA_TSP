@@ -22,7 +22,7 @@ public:
      */
     AdjacencyMatrix(Graph g, bool needsEdges);
     /**
-     * @brief Overload for operator [] that allows ease of access to variable matrix
+     * @brief Overload for operator [] that allows ease of access to line of the matrix
      * @param int the line of the matrix to access
      * @return the line of the matrix
      */
