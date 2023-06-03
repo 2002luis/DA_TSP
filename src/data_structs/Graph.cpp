@@ -96,7 +96,7 @@ public:
     }
 };
 
-int Graph::djikstra(int sourc, int dest){
+double Graph::djikstra(int sourc, int dest){
     std::priority_queue<std::pair<int,double>,std::vector<std::pair<int,double>>,cmp> q;
     for(auto &i : vertexSet){
         i->setPath(nullptr);
@@ -223,4 +223,10 @@ bool Graph::addVertex(const int &id, double lat, double lon){
         return false;
     vertexSet.push_back(new Vertex(id,lat,lon));
     return true;
+}
+
+int Graph::countVisited(){
+    int out = 0;
+    for(auto i : vertexSet) if(i->isVisited()) out++;
+    return out;
 }

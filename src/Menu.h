@@ -11,6 +11,10 @@
 class Menu {
 public:
     Menu();
+    /**
+     * Menu loop
+     * @return true if it should loop again, false otherwise
+     */
     bool MenuLoop();
     Graph g;
     AdjacencyMatrix adj;

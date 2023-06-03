@@ -106,3 +106,4 @@ double AdjacencyMatrix::pathDist(std::vector<int> v){
     for(unsigned long int i = 1; i < v.size(); i++) out+=matrix[v[i]][v[i-1]];
     return out;
 }
+

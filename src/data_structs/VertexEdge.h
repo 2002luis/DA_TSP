@@ -18,124 +18,86 @@ class Edge;
 
 class Vertex {
 public:
-    ///                                                                                     --------------------------
-    /// @param int id
+    /// Constructor for vertex
+    /// @param int the id of the vertex
     ///
     Vertex(int id);
 
-    ///                                                                                     --------------------------
-    /// @param int id
-    /// @param double lat
-    /// @param double lon
+    /// Constructor for vertex
+    /// @param int the id of the vertex
+    /// @param double the latitude of the vertex
+    /// @param double the longitude of the vertex
     ///
     Vertex(int id, double lat, double lon);
 
-    ///                                                                                     --------------------------
+    /// Compares vertex by distance
     /// @param Vertex vertex
-    /// @return NSEI                                                                      -----------------------------
+    /// @return true if smaller, false if equal or bigger
     ///
-    bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue        ------------------------------
+    bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Gets vertex ID
+    /// @return the id
     ///
     int getId() const;
 
-    ///                                                                                     --------------------------
+    /**
+     * Get the list of adjacent vertices
+     * @return the list of adjacent vertices
+     */
     std::vector<Edge *> getAdj() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Gets visited variable
+    /// @return the variable
     ///
     bool isVisited() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    bool isProcessing() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    unsigned int getIndegree() const;
-
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Get variable dist
+    /// @return the variable
     ///
     double getDist() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Gets path variable
+    /// @return the variable
     ///
     Edge *getPath() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    std::vector<Edge *> getIncoming() const;
 
-    ///                                                                                     --------------------------
-    /// @param int info
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    void setId(int info);
-
-    ///                                                                                     --------------------------
-    /// @param bool visited
-    /// @return NSEI                                                                      -----------------------------
+    /// Sets visited variable
+    /// @param bool the new value of the variable
     ///
     void setVisited(bool visited);
 
-    ///                                                                                     --------------------------
-    /// @param bool processing
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    void setProcesssing(bool processing);
-
-    ///                                                                                     --------------------------
-    /// @param unsigned int indegree
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    void setIndegree(unsigned int indegree);
-
-    ///                                                                                     --------------------------
-    /// @param double dist
-    /// @return NSEI                                                                      -----------------------------
+    /// Sets dist variable
+    /// @param double the new value of dist
     ///
     void setDist(double dist);
 
-    ///                                                                                     --------------------------
-    /// @param Edge *path
-    /// @return NSEI                                                                      -----------------------------
+    /// Sets path variable
+    /// @param Edge* the new value of path
     ///
     void setPath(Edge *path);
 
-    ///                                                                                     --------------------------
-    /// @param Vertex *dest
-    /// @param double w
-    /// @return NSEI                                                                      -----------------------------
+    /// Creates a new edge starting in this vertex with destination in vertex dest and weight w
+    /// @param Vertex* the destination vertex
+    /// @param double the weight of the edge
+    /// @return a pointer to the new edge
     ///
     Edge * addEdge(Vertex *dest, double w);
 
-    ///                                                                                     --------------------------
-    /// @param int destID
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    bool removeEdge(int destID);
 
-    ///                                                                                     --------------------------
-    ///
-    void removeOutgoingEdges();
 
-    ///                                                                                     --------------------------
-    /// @param int dest
-    /// @return NSEI                                                                      -----------------------------
+    /// Returns the edge that ends in vertex dest
+    /// @param int The ID of the vertex to search for
+    /// @return the edge if it exists, nullptr if it doesn't
     ///
     Edge* getEdgeTo(int dest);
 
-    ///                                                                                     --------------------------
-    /// @param Vertex* v
-    /// @return NSEI                                                                      -----------------------------
+    /// Calculates the geographical distance between two vertices with latitude and longitude
+    /// Undefined behaviour if either vertex doesn't have either latitude or longitude
+    /// @param Vertex* The other vertex to calculate the distance
+    /// @return The distance between the two nodes
     ///
     double haversine(Vertex* v);
 
@@ -162,13 +124,11 @@ protected:
     /// required by MutablePriorityQueue and UFDS
     int queueIndex = 0;
 
-    ///                                                                                     --------------------------
-    /// @param Edge *edge
-    /// @return NSEI                                                                      -----------------------------
+    /// Deletes an edge
+    /// @param Edge* the edge to delete
     ///
     void deleteEdge(Edge *edge);
 
-    ///                                                                                     -------------------------
     float lat, lon;
 };
 
@@ -176,54 +136,45 @@ protected:
 
 class Edge {
 public:
-    ///                                                                                     --------------------------
-    /// @param Vertex *orig
-    /// @param Vertex *dest
-    /// @param double w
+    /// Edge constructor
+    /// @param Vertex* origin vertex
+    /// @param Vertex* destination vertex
+    /// @param double the weight of the vertex
     ///
     Edge(Vertex *orig, Vertex *dest, double w);
 
-    ///                                                                                     --------------------------
-    ///
+    /// Returns a pointer to the destination vertex of the edge
+    /// @return the Vertex in question
     Vertex * getDest() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Returns the weight variable
+    /// @return the variable in question
     ///
     double getWeight() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
+    /// Returns the selected variable
+    /// @return the variable in question
     ///
     bool isSelected() const;
 
-    ///                                                                                     --------------------------
-    ///
+    /// Returns a pointer to the origin vertex of the edge
+    /// @return the Vertex in question
     Vertex * getOrig() const;
 
-    ///                                                                                     --------------------------
-    ///
-    Edge *getReverse() const;
 
-    ///                                                                                     --------------------------
-    /// @return NSEI                                                                      -----------------------------
-    ///
-    double getFlow() const;
 
-    ///                                                                                     --------------------------
-    /// @param bool selected
+
+    /// Sets the selected variable
+    /// @param bool the new value of the variable
     ///
     void setSelected(bool selected);
 
-    ///                                                                                     --------------------------
-    /// @param Edge *reverse
+    /// Sets the reverse variable
+    /// @param Edge* the new value of the variable
     ///
     void setReverse(Edge *reverse);
 
-    ///                                                                                     --------------------------
-    /// @param double flow
-    ///
-    void setFlow(double flow);
+
 protected:
     /// destination vertex
     Vertex * dest;
